@@ -82,10 +82,10 @@ RUN apk --no-cache add \
 
 WORKDIR /code
 
-COPY entrypoint_jupyter.sh  /usr/local/bin/
+COPY entrypoint.sh  /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
 
 EXPOSE 8888
 
-ENTRYPOINT ["/sbin/tini", "--", "entrypoint_jupyter.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "entrypoint.sh"]
 CMD ["jupyter", "notebook"]
